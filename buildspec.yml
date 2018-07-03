@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Copying files to S3
+      - aws cp ./index.html s3://paveltestdomain.com/index.html
+  post_build:
+    commands:
+      - echo built completed on `date`
+artifacts:
+  files:
+    - index.html
